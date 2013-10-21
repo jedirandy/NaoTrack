@@ -10,7 +10,6 @@ typedef std::pair<double,double>  Point;  // (x,y)
 typedef std::pair<int,Point>      Data;   // (label, P)
 
 double fRand(double fMin, double fMax) {
-    srand(time(NULL));
     double f = (double)rand() / RAND_MAX;
     return fMin + f * (fMax - fMin);
 }
@@ -55,7 +54,6 @@ int main(int argc, char* argv[]) {
     std::cout << "noiseLevel: " << noiseLevel << std::endl;
 
     std::vector<Data> datas;
-    int numOfPoint = argc - 5;
     int label = 1;
     for (int i = 5; i < argc; i += 2) {
         Point p(arg2d(argv[i]), arg2d(argv[i+1]));
@@ -63,6 +61,7 @@ int main(int argc, char* argv[]) {
         datas.push_back(data);
     }
 
+    srand(time(NULL));
     std::shared_ptr<boost::asio::ip::tcp::iostream> socket(new boost::asio::ip::tcp::iostream(host, port));
 
     boost::thread updateThread(updatePoints, socket, datas, delay, noiseLevel);
