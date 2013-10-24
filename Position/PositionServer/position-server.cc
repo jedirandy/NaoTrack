@@ -114,6 +114,7 @@ public:
 	    Point& p = d.second;
 	    socket << d.first << ' ' << p.first << ' ' << p.second << ' ' << std::endl;
 	  }
+      socket << "end" << std::endl;
 	}
 	else
 	  std::cerr << "Operator '" << op << "' invalid" << std::endl;

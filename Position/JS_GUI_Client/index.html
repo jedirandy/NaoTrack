@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+    </head>
+    <body>
+        <canvas id="myCanvas" width="400" height="400"></canvas>
+        <script>
+            var canvas = document.getElementById('myCanvas');
+            var context = canvas.getContext('2d');
+            context.fillStyle="#000000";
+            context.fillRect(0, 0, context.canvas.width, context.canvas.height);
+            var socket = io.connect('http://localhost:3001');
+            socket.on('points', function(data) {
+                context.fillStyle="#000000";
+                context.fillRect(0, 0, context.canvas.width, context.canvas.height);
+                var num = parseInt(data[0]);
+                for (var i = 1; i <= num; i++) {
+                    try {
+                        var s = data[i].split(' ');
+                        var x = parseFloat(s[1]) * context.canvas.width / 10;
+                        var y = parseFloat(s[2]) * context.canvas.height / 10;
+                        //console.log("x: " + x);
+                        //console.log("y: " + y);
+                        context.fillStyle="#FFFFFF";
+                        context.fillRect(x, y, 2, 2);
+                    }
+                    catch(err) {
+                        console.log(err);
+                        console.log("num: " + num);
+                        console.log("i: " + i);
+                        console.log("s: " + s);
+                        console.log("data: " + data);
+                    }
+                }
+            });
+
+            setInterval(function() {
+                socket.emit('put');
+            }, 100);
+        </script>
+    </body>
+</html> 
