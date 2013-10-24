@@ -2,7 +2,7 @@ CC=g++
 CFLAGS=-O3 `pkg-config --cflags mirage` 
 LDFLAGS=`pkg-config --libs mirage`
 
-TARGETS=main
+TARGETS=color labelizer
 
 all: $(TARGETS)
 
