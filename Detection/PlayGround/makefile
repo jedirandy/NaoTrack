@@ -1,8 +1,8 @@
 CC=g++
-CFLAGS=-O3 `pkg-config --cflags mirage` 
-LDFLAGS=`pkg-config --libs mirage`
+CFLAGS=-O3 `pkg-config --cflags mirage axisPTZ` 
+LDFLAGS=`pkg-config --libs mirage axisPTZ`
 
-TARGETS=color labelizer
+TARGETS=color labelizer camera
 
 all: $(TARGETS)
 

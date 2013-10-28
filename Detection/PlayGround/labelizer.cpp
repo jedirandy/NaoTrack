@@ -35,17 +35,20 @@ int main(int argc, char* argv[]) {
                   << " connected components. Each corresponds to a number in [1.." 
                   << labelizer.nb_labels << "] for 8-neighbors." << std::endl;
 
-        const Labelizer::BoundingBox& box = labelizer.boundingBox(1);
-        mirage::img::Coordinate A,C,size;
+        for (int i = 1; i<= labelizer.nb_labels; ++i) {
+            const Labelizer::BoundingBox& box = labelizer.boundingBox(i);
+            mirage::img::Coordinate A,C,size;
 
-        A = box.min();
-        C = box.max();
-        size = input_image._dimension;
+            A = box.min();
+            C = box.max();
+            size = input_image._dimension;
 
-        std::cout << "Width: " << size[0] << std::endl;
-        std::cout << "Height: " << size[1] << std::endl;
-        std::cout << "Center_X: " << (A[0] + C[0]) / 2 << std::endl;
-        std::cout << "Center_Y: " << (A[1] + C[1]) / 2 << std::endl;
+            std::cout << "Label: " << i << std::endl;
+            std::cout << "Width: " << size[0] << std::endl;
+            std::cout << "Height: " << size[1] << std::endl;
+            std::cout << "Center_X: " << (A[0] + C[0]) / 2 << std::endl;
+            std::cout << "Center_Y: " << (A[1] + C[1]) / 2 << std::endl;
+        }
     }
     catch(mirage::Exception::Any& e) {
         std::cerr << "Error : " <<  e.what() << std::endl;

@@ -36,6 +36,9 @@ int main(int argc, char* argv[]) {
     return 1;
   }
 
+  axis.setAutoiris("off");
+  axis.setIris(1000);
+
   axis.getPosition(pan,tilt,zoom);
   std::cout << "Current position is " << std::endl
 	    << "  pan  = " << pan << std::endl
