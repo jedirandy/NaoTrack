@@ -14,10 +14,10 @@ int main(int argc, char* argv[]) {
   int port;
   double pan,tilt,zoom;
 
-  if(argc!=8) {
+  if(argc!=10) {
      std::cout << "Usage :" << std::endl
 	       << "  " << argv[0] 
-	       << " <hostname> <port:80> <username> <password> <pan> <tilt> <zoom>" 
+	       << " <hostname> <port:80> <username> <password> <pan> <tilt> <zoom> <x> <y>" 
 	       << std::endl;
       return 0;
   }
@@ -76,8 +76,11 @@ int main(int argc, char* argv[]) {
 	     (ImageRGB::value_type*)axis.getImageBytes(dummy,dummy,dummy));
 
   // Let is save the mirage image in a file.
+  std::ostringstream outputnamestream;
+  outputnamestream << "X_" << argv[8] << "Y_" << argv[9] << "pan_" << pan << "tilt_" << tilt << "zoom_" << zoom << ".jpg";
+  std::string outputname = outputnamestream.str();
   rgb2bgr(img);
-  mirage::img::JPEG::write(img,"ptz.jpg",80);
+  mirage::img::JPEG::write(img,outputname,80);
   std::cout << "Image has been captured in ptz.jpg file." << std::endl;
 	     
   return 0;
