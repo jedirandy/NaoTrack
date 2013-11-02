@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="NaoTrack" />
+		<Option pch_mode="2" />
+		<Option default_target="PositionServer" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/NaoTrack" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="PositionServer">
+				<Option output="bin/PositionServer/position_server" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin/PositionServer/" />
+				<Option object_output="obj/PositionServer/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-Wall -ansi -pedantic -O3 -std=c++0x" />
+				</Compiler>
+				<Linker>
+					<Add option="-lboost_thread-mt" />
+					<Add option="-lboost_system-mt" />
+					<Add option="-lpthread" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="main.cpp">
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="src/Position/PositionServer/position-server.cc" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

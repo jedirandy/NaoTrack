@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1382636919 source:/home/mato/Cours/NaoTrack/src/Position/PositionServer/position-server.cc
+	<string>
+	<iostream>
+	<cstdlib>
+	<map>
+	<utility>
+	<chrono>
+	<thread>
+	<mutex>
+	<memory>
+	<boost/asio.hpp>
+

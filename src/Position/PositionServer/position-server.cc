@@ -29,12 +29,12 @@ public:
 private:
 
   time_map points;
-  std::mutex lock;  
+  std::mutex lock;
 
 public:
 
   long int persist;
-  
+
   SharedValue(void) : points(), lock(), persist(10) {}
   ~SharedValue(void) {}
 
@@ -74,13 +74,13 @@ private:
 public:
 
   ServiceThread(SharedValue& val,
-		boost::asio::ip::tcp::acceptor& acceptor) 
+		boost::asio::ip::tcp::acceptor& acceptor)
     : value(val), p_socket(new socket_stream()) {
     acceptor.accept(*(p_socket->rdbuf()));
   }
 
   // This is called internally at thread creation.
-  ServiceThread(const ServiceThread& cp) 
+  ServiceThread(const ServiceThread& cp)
     : value(cp.value), p_socket(cp.p_socket) {
   }
 
@@ -97,9 +97,9 @@ public:
       socket.exceptions(std::ios::failbit | std::ios::badbit | std::ios::eofbit);
       while(true) {
 	socket >> op;
-	if(op == "quit") 
+	if(op == "quit")
 	  break;
-	if(op == "clear") 
+	if(op == "clear")
 	  value.clear();
 	else if(op == "put") {
 	  socket >> l >> x >> y;
@@ -138,11 +138,12 @@ int main(int argc, char* argv[]) {
   try {
     boost::asio::io_service        ios;
     boost::asio::ip::tcp::endpoint endpoint(boost::asio::ip::tcp::v4(), atoi(argv[1]));
-    boost::asio::ip::tcp::acceptor acceptor(ios, endpoint); 
+    boost::asio::ip::tcp::acceptor acceptor(ios, endpoint);
     SharedValue                    shared_value;
 
     shared_value.persist = atoi(argv[2]);
-  
+
+    std::cout << "PositionServer is started..." << std::endl;
     while(true) {
       std::thread service(ServiceThread(shared_value,acceptor));
       service.detach();
@@ -151,6 +152,6 @@ int main(int argc, char* argv[]) {
   catch(std::exception& e) {
     std::cerr << e.what() << std::endl;
   }
-  
+
   return 0;
 }

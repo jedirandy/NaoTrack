@@ -4,7 +4,7 @@
 #include <ctime>
 #include <boost/asio.hpp>
 #include <boost/thread.hpp>
-#define _GLIBCXX_USE_NANOSLEEP 1
+//#define _GLIBCXX_USE_NANOSLEEP 1
 
 typedef std::pair<double,double>  Point;  // (x,y)
 typedef std::pair<int,Point>      Data;   // (label, P)
@@ -39,7 +39,7 @@ void updatePoints(std::shared_ptr<boost::asio::ip::tcp::iostream> socket,
 int main(int argc, char* argv[]) {
     //std::cout << fRand(-0.5, 0.5) << std::endl;
     if(argc%2!=1 || argc < 7) {
-        std::cerr << "Usage : " << argv[0] << " <host> <port> <data persistance (seconds)> <noise level> <points...>" << std::endl;
+        std::cerr << "Usage : " << argv[0] << " <host> <port> <delay (ms)> <noise level> <points...>" << std::endl;
         return 1;
     }
 
@@ -58,6 +58,7 @@ int main(int argc, char* argv[]) {
     for (int i = 5; i < argc; i += 2) {
         Point p(arg2d(argv[i]), arg2d(argv[i+1]));
         Data data(label++, p);
+        std::cout << data.first << " " << data.second.first << " " << data.second.second << std::endl;
         datas.push_back(data);
     }
 
