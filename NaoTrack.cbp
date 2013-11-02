@@ -41,11 +41,13 @@
 				<Option parameters="localhost 3000 100 0.3 1.1 2.1 7.8 8.9" />
 				<Compiler>
 					<Add option="-Wall -ansi -O3 -std=c++0x" />
+					<Add directory="third_party/local/include" />
 				</Compiler>
 				<Linker>
 					<Add option="-lpthread" />
 					<Add option="-lboost_thread-mt" />
 					<Add option="-lboost_system-mt" />
+					<Add library="third_party/local/lib/libglog.a" />
 				</Linker>
 			</Target>
 		</Build>
