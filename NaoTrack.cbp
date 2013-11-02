@@ -22,6 +22,7 @@
 				<Option object_output="obj/PositionServer/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
+				<Option parameters="3000 1" />
 				<Compiler>
 					<Add option="-Wall -ansi -pedantic -O3 -std=c++0x" />
 				</Compiler>
@@ -31,15 +32,34 @@
 					<Add option="-lpthread" />
 				</Linker>
 			</Target>
+			<Target title="FakeSource">
+				<Option output="bin/FakeSource/fakesource" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin/FakeSource/" />
+				<Option object_output="obj/FakeSource/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option parameters="localhost 3000 100 0.3 1.1 2.1 7.8 8.9" />
+				<Compiler>
+					<Add option="-Wall -ansi -O3 -std=c++0x" />
+				</Compiler>
+				<Linker>
+					<Add option="-lpthread" />
+					<Add option="-lboost_thread-mt" />
+					<Add option="-lboost_system-mt" />
+				</Linker>
+			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="main.cpp">
-			<Option target="Debug" />
+		<Unit filename="src/Position/Fakesource/fakesource.cpp">
+			<Option target="FakeSource" />
 		</Unit>
-		<Unit filename="src/Position/PositionServer/position-server.cc" />
+		<Unit filename="src/Position/PositionServer/position-server.cc">
+			<Option target="Debug" />
+			<Option target="PositionServer" />
+		</Unit>
 		<Extensions>
 			<code_completion />
 			<debugger />
