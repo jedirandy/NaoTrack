@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="FakeSource" />
+	<ActiveTarget name="DetectionTest" />
+	<File name="src/Position/Fakesource/fakesource.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="475" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/Detection/FrameProcessor.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="51" topLine="0" />
+		</Cursor>
+	</File>
 	<File name="src/Position/PositionServer/position-server.cc" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="136" topLine="12" />
 		</Cursor>
 	</File>
-	<File name="src/Position/Fakesource/fakesource.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/Detection/FrameCapturer.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1272" topLine="47" />
+			<Cursor1 position="50" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/Detection/DetectionTest.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="221" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/Detection/FrameCapturer.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="419" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

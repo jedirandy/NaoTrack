@@ -11,3 +11,160 @@
 	<memory>
 	<boost/asio.hpp>
 
+1383432003 source:/home/mato/Cours/NaoTrack/src/Detection/DetectionTest.cpp
+	<string>
+	<glog/logging.h>
+	"FrameCapturer.h"
+	"FrameProcessor.h"
+
+1383428507 /home/mato/Cours/NaoTrack/src/Detection/FrameCapturer.h
+	<string>
+	<axisPTZ.h>
+	<mirage.h>
+
+1383429019 source:/home/mato/Cours/NaoTrack/src/Detection/FrameCapturer.cpp
+	<glog/logging.h>
+	"FrameCapturer.h"
+
+1383388609 /home/mato/Cours/NaoTrack/third_party/local/include/glog/logging.h
+	<errno.h>
+	<string.h>
+	<time.h>
+	<iosfwd>
+	<ostream>
+	<sstream>
+	<string>
+	<unistd.h>
+	<vector>
+	<stdint.h>
+	<sys/types.h>
+	<inttypes.h>
+	<gflags/gflags.h>
+	"glog/log_severity.h"
+	"glog/vlog_is_on.h"
+
+1383388609 /home/mato/Cours/NaoTrack/third_party/local/include/glog/log_severity.h
+
+1383388609 /home/mato/Cours/NaoTrack/third_party/local/include/glog/vlog_is_on.h
+	"glog/log_severity.h"
+
+1383420919 /usr/local/include/axisPTZ-1.0/axisPTZ.h
+	<PTZ.h>
+
+1383420919 /usr/local/include/axisPTZ-1.0/PTZ.h
+	<map>
+	<cc++/socket.h>
+	<cc++/url.h>
+	<jpeg-c++.h>
+	<string>
+
+1382467657 /usr/local/include/jpeg-c++-1.0/jpeg-c++.h
+	<jpegStream.h>
+	<jpegDecompress.h>
+	<jpegCompress.h>
+	<jpegException.h>
+
+1382467657 /usr/local/include/jpeg-c++-1.0/jpegStream.h
+	<iostream>
+
+1382467657 /usr/local/include/jpeg-c++-1.0/jpegDecompress.h
+	<iostream>
+	<cstdlib>
+	<jpegStream.h>
+	<jpegException.h>
+	<jpeglib.h>
+
+1382467657 /usr/local/include/jpeg-c++-1.0/jpegException.h
+	<string>
+
+1382467657 /usr/local/include/jpeg-c++-1.0/jpegCompress.h
+	<iostream>
+	<cstdlib>
+	<jpegStream.h>
+	<jpeglib.h>
+
+1383431623 /home/mato/Cours/NaoTrack/src/Detection/FrameProcessor.h
+
+1383431675 source:/home/mato/Cours/NaoTrack/src/Detection/FrameProcessor.cpp
+	<glog/logging.h>
+	"FrameCapturer.h"
+	"FrameProcessor.h"
+
+1382467701 /usr/local/include/mirage-1.0/mirage.h
+	<mirageAlgo.h>
+	<mirageImage.h>
+	<mirageMemory.h>
+	<mirageRequirements.h>
+	<mirageImg.h>
+	<mirageColorSpace.h>
+	<mirageException.h>
+	<mirageTime.h>
+	<mirageMorph.h>
+	<mirageLabel.h>
+	<mirageStatic.h>
+	<mirageFFT.h>
+
+1382467701 /usr/local/include/mirage-1.0/mirageAlgo.h
+	<iostream>
+	<math.h>
+	<mirageImage.h>
+
+1382467701 /usr/local/include/mirage-1.0/mirageImage.h
+	<mirageMemory.h>
+	<math.h>
+	<mirageException.h>
+
+1382467701 /usr/local/include/mirage-1.0/mirageMemory.h
+	<cstddef>
+	<cstring>
+	<iostream>
+
+1382467701 /usr/local/include/mirage-1.0/mirageException.h
+	<sstream>
+
+1382467701 /usr/local/include/mirage-1.0/mirageRequirements.h
+	<mirageMemory.h>
+	<mirageImage.h>
+	<mirage.h>
+
+1382467701 /usr/local/include/mirage-1.0/mirageImg.h
+	<mirageImage.h>
+	<mirageColorSpace.h>
+	<mirageException.h>
+	<mirageStatic.h>
+	<iostream>
+	<fstream>
+	<jpeg-c++.h>
+	<string>
+	<list>
+	<math.h>
+
+1382467701 /usr/local/include/mirage-1.0/mirageColorSpace.h
+	<math.h>
+	<mirageAlgo.h>
+
+1382467701 /usr/local/include/mirage-1.0/mirageStatic.h
+
+1382467701 /usr/local/include/mirage-1.0/mirageTime.h
+	<time.h>
+	<sys/time.h>
+
+1382467701 /usr/local/include/mirage-1.0/mirageMorph.h
+	<mirageImg.h>
+	<math.h>
+
+1382467701 /usr/local/include/mirage-1.0/mirageLabel.h
+	<mirageException.h>
+	<vector>
+	<list>
+	<string>
+
+1382467701 /usr/local/include/mirage-1.0/mirageFFT.h
+	<map>
+	<iostream>
+	<iomanip>
+	<gsl/gsl_errno.h>
+	<gsl/gsl_fft_complex.h>
+	<mirageImage.h>
+	<mirageColorSpace.h>
+

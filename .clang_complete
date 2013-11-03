@@ -1,1 +1,5 @@
 -I./third_party/local/include
+-I/usr/local/include/axisPTZ-1.0
+-I/usr/local/include/jpeg-c++-1.0
+-I/usr/local/include/mirage-1.0
+-I./src/Detection

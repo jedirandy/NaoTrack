@@ -50,11 +50,42 @@
 					<Add library="third_party/local/lib/libglog.a" />
 				</Linker>
 			</Target>
+			<Target title="DetectionTest">
+				<Option output="bin/DetectionTest/detection_test" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin/DetectionTest/" />
+				<Option object_output="obj/DetectionTest/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-Wall -ansi -std=c++0x `pkg-config --cflags mirage axisPTZ`" />
+					<Add directory="third_party/local/include" />
+				</Compiler>
+				<Linker>
+					<Add option="-lpthread" />
+					<Add option="-lglog" />
+					<Add option="`pkg-config --libs mirage axisPTZ`" />
+				</Linker>
+			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="src/Detection/DetectionTest.cpp">
+			<Option target="DetectionTest" />
+		</Unit>
+		<Unit filename="src/Detection/FrameCapturer.cpp">
+			<Option target="DetectionTest" />
+		</Unit>
+		<Unit filename="src/Detection/FrameCapturer.h">
+			<Option target="DetectionTest" />
+		</Unit>
+		<Unit filename="src/Detection/FrameProcessor.cpp">
+			<Option target="DetectionTest" />
+		</Unit>
+		<Unit filename="src/Detection/FrameProcessor.h">
+			<Option target="DetectionTest" />
+		</Unit>
 		<Unit filename="src/Position/Fakesource/fakesource.cpp">
 			<Option target="FakeSource" />
 		</Unit>
