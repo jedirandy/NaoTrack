@@ -1,3 +1,5 @@
 bin
 obj
 node_modules
+third_party/glog
+third_party/local
