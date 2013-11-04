@@ -8,10 +8,22 @@ FrameCapturer::FrameCapturer(string host, int port, string user, string password
     LOG(INFO) << "host: " << host;
     LOG(INFO) << "port: " << port;
     LOG(INFO) << "username: " << user;
-    LOG(INFO) << "password: " << password
+    LOG(INFO) << "password: " << password;
 
-    init();
+    //init();
 }
+
+//FrameCapturer::FrameCapturer(FrameCapturer& fc)
+    //:host(fc.getHost()), port(fc.getPort()), username(fc.getUsername()), password(fc.getPassword()), axis(fc.getHost(), fc.getPort()){
+
+    //LOG(INFO) << __PRETTY_FUNCTION__;
+    //LOG(INFO) << "host: " << host;
+    //LOG(INFO) << "port: " << port;
+    //LOG(INFO) << "username: " << username;
+    //LOG(INFO) << "password: " << password;
+
+    //init();
+//}
 
 FrameCapturer::~FrameCapturer()
 {
@@ -55,12 +67,12 @@ ImageRGB FrameCapturer::getFrame(){
     return frame;
 }
 
-ImageRGB FrameCapturer::getFakeFrame() {
+ImageRGB FrameCapturer::getFakeFrame(std::string filename) {
     LOG(INFO) << __PRETTY_FUNCTION__;
-    if(!fakeFrame) {
-        LOG(INFO) << "Init fakeFrame...";
-        mirage::img::JPEG::read(fakeFrame, "fakeFrame.jpg");
-    }
+    //if(fakeFrame == nullptr) {
+    LOG(INFO) << "Init fakeFrame...";
+    mirage::img::JPEG::read(fakeFrame, filename);
+    //}
     return fakeFrame;
 }
 

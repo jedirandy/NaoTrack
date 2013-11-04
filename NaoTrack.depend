@@ -11,18 +11,18 @@
 	<memory>
 	<boost/asio.hpp>
 
-1383432003 source:/home/mato/Cours/NaoTrack/src/Detection/DetectionTest.cpp
+1383522359 source:/home/mato/Cours/NaoTrack/src/Detection/DetectionTest.cpp
 	<string>
 	<glog/logging.h>
 	"FrameCapturer.h"
 	"FrameProcessor.h"
 
-1383428507 /home/mato/Cours/NaoTrack/src/Detection/FrameCapturer.h
+1383507329 /home/mato/Cours/NaoTrack/src/Detection/FrameCapturer.h
 	<string>
 	<axisPTZ.h>
 	<mirage.h>
 
-1383429019 source:/home/mato/Cours/NaoTrack/src/Detection/FrameCapturer.cpp
+1383507740 source:/home/mato/Cours/NaoTrack/src/Detection/FrameCapturer.cpp
 	<glog/logging.h>
 	"FrameCapturer.h"
 
@@ -83,9 +83,12 @@
 	<jpegStream.h>
 	<jpeglib.h>
 
-1383431623 /home/mato/Cours/NaoTrack/src/Detection/FrameProcessor.h
+1383522913 /home/mato/Cours/NaoTrack/src/Detection/FrameProcessor.h
+	<string>
+	<vector>
 
-1383431675 source:/home/mato/Cours/NaoTrack/src/Detection/FrameProcessor.cpp
+1383523020 source:/home/mato/Cours/NaoTrack/src/Detection/FrameProcessor.cpp
+	<math.h>
 	<glog/logging.h>
 	"FrameCapturer.h"
 	"FrameProcessor.h"
@@ -167,4 +170,10 @@
 	<gsl/gsl_fft_complex.h>
 	<mirageImage.h>
 	<mirageColorSpace.h>
+
+1383362781 /home/mato/Cours/NaoTrack/src/Detection/pantiltzoom.h
+
+1383362781 source:/home/mato/Cours/NaoTrack/src/Detection/pantiltzoom.cpp
+	<math.h>
+	"pantiltzoom.h"
 

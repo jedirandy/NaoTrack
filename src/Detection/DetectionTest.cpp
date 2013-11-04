@@ -6,7 +6,7 @@
 void loggerInit(char* argv0) {
     google::InitGoogleLogging(argv0);
     FLAGS_logtostderr = 1;
-    FLAGS_minloglevel = 0;
+    FLAGS_minloglevel = 1;
 }
 
 int main(int argc, char* argv[]) {
@@ -18,6 +18,26 @@ int main(int argc, char* argv[]) {
     //std::string password("gloubi");
 
     FrameCapturer fc("ptz1.grid.metz.supelec.fr",80,"frezza","gloubi");
+    FLAGS_minloglevel = 0;
+    FrameProcessor fp(fc);
+    fp.filterColor(40);
+    fp.writeFrame("output1.jpg");
+    std::vector<std::pair<double, double>> pt;
+    pt = fp.findPositions();
+    //for (auto i : pt) {
+        //std::cout << "haha" << std::endl;
+        //std::cout << i.first << std::endl;
+        //std::cout << i.second << std::endl;
+    //}
+    fp.nextFakeFrame("fakeFrame2.jpg");
+    fp.filterColor(40);
+    fp.writeFrame("output2.jpg");
+    pt = fp.findPositions();
+    //for (auto i : pt) {
+        //std::cout << "hoho" << std::endl;
+        //std::cout << i.first << std::endl;
+        //std::cout << i.second << std::endl;
+    //}
 
     //double pan, tilt, zoom;
     //fc.getPanTiltZoom(pan, tilt, zoom);

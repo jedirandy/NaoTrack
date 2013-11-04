@@ -52,7 +52,7 @@ DEP_FAKESOURCE =
 OUT_FAKESOURCE = bin/FakeSource/fakesource
 
 INC_DETECTIONTEST = $(INC) -Ithird_party/local/include
-CFLAGS_DETECTIONTEST = $(CFLAGS) -Wall -ansi -std=c++0x `pkg-config --cflags mirage axisPTZ`
+CFLAGS_DETECTIONTEST = $(CFLAGS) -g -Wall -ansi -std=c++0x `pkg-config --cflags mirage axisPTZ`
 RESINC_DETECTIONTEST = $(RESINC)
 RCFLAGS_DETECTIONTEST = $(RCFLAGS)
 LIBDIR_DETECTIONTEST = $(LIBDIR)

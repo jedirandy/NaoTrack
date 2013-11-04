@@ -13,13 +13,18 @@ class FrameCapturer
 {
     public:
         FrameCapturer(string host, int port, string user, string password);
+        //FrameCapturer(FrameCapturer& fc);
         ~FrameCapturer();
 
         void getPanTiltZoom(double &pan, double &tilt, double &zoom);
         void setPanTilt(double &pan, double &tilt);
         void setZoom(double &zoom) const;
+        string getHost(){return host;}
+        int getPort(){return port;}
+        string getUsername(){return username;}
+        string getPassword(){return password;}
         ImageRGB getFrame();
-        ImageRGB getFakeFrame();
+        ImageRGB getFakeFrame(string filename);
 
     protected:
     private:
