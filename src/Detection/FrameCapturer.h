@@ -18,7 +18,7 @@ class FrameCapturer
 
         void getPanTiltZoom(double &pan, double &tilt, double &zoom);
         void setPanTilt(double &pan, double &tilt);
-        void setZoom(double &zoom) const;
+        void setZoom(double zoom);
         string getHost(){return host;}
         int getPort(){return port;}
         string getUsername(){return username;}

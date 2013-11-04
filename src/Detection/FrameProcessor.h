@@ -27,7 +27,7 @@ class FrameProcessor
         ~FrameProcessor();
         void filterColor(int threshold);
         std::vector<PanTiltCentered> findPositions();
-        //void nextFrame();
+        void nextFrame();
         void nextFakeFrame(std::string filename);
         void writeFrame(std::string filename);
     protected:

@@ -10,7 +10,7 @@ FrameCapturer::FrameCapturer(string host, int port, string user, string password
     LOG(INFO) << "username: " << user;
     LOG(INFO) << "password: " << password;
 
-    //init();
+    init();
 }
 
 //FrameCapturer::FrameCapturer(FrameCapturer& fc)
@@ -34,6 +34,9 @@ FrameCapturer::~FrameCapturer()
 void FrameCapturer::getPanTiltZoom(double &pan, double &tilt, double &zoom){
     LOG(INFO) << __PRETTY_FUNCTION__;
     axis.getPosition(pan, tilt, zoom);
+    LOG(INFO) << "Pan: " << pan;
+    LOG(INFO) << "Tilt: " << tilt;
+    LOG(INFO) << "Zoom: " << zoom;
 }
 
 void FrameCapturer::setPanTilt(double &pan, double &tilt) {
@@ -45,10 +48,12 @@ void FrameCapturer::setPanTilt(double &pan, double &tilt) {
     axis.wait();
 }
 
-void FrameCapturer::setZoom(double &zoom) const{
+void FrameCapturer::setZoom(double zoom){
     LOG(INFO) << __PRETTY_FUNCTION__;
     LOG(INFO) << "Zoom: " << zoom;
 
+    axis.setZoom(zoom);
+    axis.wait();
     ost::Thread::sleep(2000);
 }
 
@@ -59,6 +64,7 @@ ImageRGB FrameCapturer::getFrame(){
     //unsigned char *imgBytes = axis.getImageBytes(width, height, depth);
     //mirage::img::Coordinate img_size(width, height);
 
+    axis.getDefaultBMPImage();
     int dummy;
     mirage::img::Coordinate img_size(axis.getWidth(), axis.getHeight());
     frame.resize(img_size,
@@ -89,8 +95,8 @@ void FrameCapturer::init() {
     //TODO  No verifications of these two settings
     //      Can't catch the url timeout error
     //      Bugs of axisPTZ
-    axis.setAutoiris("off");
-    axis.setIris(1000);
+    axis.setAutoiris((char*)"off");
+    axis.setIris(1500);
 
     //TODO set frame_width frame_height ???
 }

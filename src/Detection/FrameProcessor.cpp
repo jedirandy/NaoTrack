@@ -5,14 +5,22 @@
 
 FrameProcessor::FrameProcessor(FrameCapturer& fc)
     //TODO
-    :frameCapturer(&fc), frame_in(fc.getFakeFrame("fakeFrame.jpg")), pantiltsCentered()
+    //:frameCapturer(&fc), frame_in(fc.getFakeFrame("fakeFrame.jpg")), pantiltsCentered()
+    :frameCapturer(&fc), frame_in(fc.getFrame()), pantiltsCentered()
 {
     LOG(INFO) << __PRETTY_FUNCTION__;
+    frameCapturer->getPanTiltZoom(pan, tilt, zoom);
 }
 
 FrameProcessor::~FrameProcessor()
 {
     LOG(INFO) << __PRETTY_FUNCTION__;
+}
+
+void FrameProcessor::nextFrame() {
+    LOG(INFO) << __PRETTY_FUNCTION__;
+    frameCapturer->getPanTiltZoom(pan, tilt, zoom);
+    frame_in = frameCapturer->getFrame();
 }
 
 void FrameProcessor::nextFakeFrame(std::string filename) {
@@ -81,23 +89,25 @@ std::vector<PanTiltCentered> FrameProcessor::findPositions() {
             A = box.min();
             C = box.max();
 
-            u = (A[0] + C[0]) / 2;
-            v = (A[1] + C[0]) / 2;
+            if (C[0] - A[0] > 3 && C[1] - A[1] > 3) {
+                u = (A[0] + C[0]) / 2.0;
+                v = (A[1] + C[1]) / 2.0;
 
-            //greenPointCenters.push_back(center);
+                //greenPointCenters.push_back(center);
 
-            LOG(INFO) << "Label: " << i;
-            LOG(INFO) << "Center_U: " << u;
-            LOG(INFO) << "Center_V: " << v;
+                LOG(INFO) << "Label: " << i;
+                LOG(INFO) << "Center_U: " << u;
+                LOG(INFO) << "Center_V: " << v;
 
-            //pan = 10.0132;
-            //tilt = -40.3937;
-            //zoom = 1998;
-            pantiltzoom(&panCentered,&tiltCentered,u,v,u0,v0,pan,tilt,zoom);
-            PanTiltCentered pantils(panCentered, tiltCentered);
-            pantiltsCentered.push_back(pantils);
-            LOG(INFO) << "PanCentered: " << panCentered;
-            LOG(INFO) << "TiltCentered: " << tiltCentered;
+                //pan = 10.0132;
+                //tilt = -40.3937;
+                //zoom = 1998;
+                pantiltzoom(&panCentered,&tiltCentered,u,v,u0,v0,pan,tilt,zoom);
+                PanTiltCentered pantils(panCentered, tiltCentered);
+                pantiltsCentered.push_back(pantils);
+                LOG(INFO) << "PanCentered: " << panCentered;
+                LOG(INFO) << "TiltCentered: " << tiltCentered;
+            }
         }
     }
     catch(mirage::Exception::Any& e) {
