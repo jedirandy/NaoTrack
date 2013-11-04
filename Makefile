@@ -55,7 +55,7 @@ INC_DETECTIONTEST = $(INC) -Ithird_party/local/include
 CFLAGS_DETECTIONTEST = $(CFLAGS) -g -Wall -ansi -std=c++0x `pkg-config --cflags mirage axisPTZ`
 RESINC_DETECTIONTEST = $(RESINC)
 RCFLAGS_DETECTIONTEST = $(RCFLAGS)
-LIBDIR_DETECTIONTEST = $(LIBDIR)
+LIBDIR_DETECTIONTEST = $(LIBDIR) -Lthird_party/local/lib
 LIB_DETECTIONTEST = $(LIB)
 LDFLAGS_DETECTIONTEST = $(LDFLAGS) -lpthread -lglog `pkg-config --libs mirage axisPTZ`
 OBJDIR_DETECTIONTEST = obj/DetectionTest

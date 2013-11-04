@@ -64,6 +64,7 @@
 					<Add option="-lpthread" />
 					<Add option="-lglog" />
 					<Add option="`pkg-config --libs mirage axisPTZ`" />
+					<Add directory="third_party/local/lib" />
 				</Linker>
 			</Target>
 		</Build>
