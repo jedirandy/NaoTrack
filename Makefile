@@ -62,6 +62,17 @@ OBJDIR_DETECTIONTEST = obj/DetectionTest
 DEP_DETECTIONTEST = 
 OUT_DETECTIONTEST = bin/DetectionTest/detection_test
 
+INC_DATABASEGENERATOR = $(INC) -Ithird_party/local/include
+CFLAGS_DATABASEGENERATOR = $(CFLAGS) -O2 -g -Wall -ansi -std=c++0x `pkg-config --cflags mirage axisPTZ`
+RESINC_DATABASEGENERATOR = $(RESINC)
+RCFLAGS_DATABASEGENERATOR = $(RCFLAGS)
+LIBDIR_DATABASEGENERATOR = $(LIBDIR) -Lthird_party/local/lib
+LIB_DATABASEGENERATOR = $(LIB)
+LDFLAGS_DATABASEGENERATOR = $(LDFLAGS) -s -lpthread -lglog -lboost_system-mt -lboost_filesystem `pkg-config --libs mirage axisPTZ`
+OBJDIR_DATABASEGENERATOR = obj/DatabaseGenerator
+DEP_DATABASEGENERATOR = 
+OUT_DATABASEGENERATOR = bin/DatabaseGenerator/database_generator
+
 OBJ_DEBUG = $(OBJDIR_DEBUG)/src/Position/PositionServer/position-server.o
 
 OBJ_POSITIONSERVER = $(OBJDIR_POSITIONSERVER)/src/Position/PositionServer/position-server.o
@@ -70,9 +81,11 @@ OBJ_FAKESOURCE = $(OBJDIR_FAKESOURCE)/src/Position/Fakesource/fakesource.o
 
 OBJ_DETECTIONTEST = $(OBJDIR_DETECTIONTEST)/src/Detection/DetectionTest.o $(OBJDIR_DETECTIONTEST)/src/Detection/FrameCapturer.o $(OBJDIR_DETECTIONTEST)/src/Detection/FrameProcessor.o
 
-all: debug positionserver fakesource detectiontest
+OBJ_DATABASEGENERATOR = $(OBJDIR_DATABASEGENERATOR)/src/Detection/DatabaseGenerator.o $(OBJDIR_DATABASEGENERATOR)/src/Detection/FrameCapturer.o $(OBJDIR_DATABASEGENERATOR)/src/Detection/FrameProcessor.o
 
-clean: clean_debug clean_positionserver clean_fakesource clean_detectiontest
+all: debug positionserver fakesource detectiontest databasegenerator
+
+clean: clean_debug clean_positionserver clean_fakesource clean_detectiontest clean_databasegenerator
 
 before_debug: 
 	test -d bin/Debug || mkdir -p bin/Debug
@@ -156,5 +169,30 @@ clean_detectiontest:
 	rm -rf bin/DetectionTest
 	rm -rf $(OBJDIR_DETECTIONTEST)/src/Detection
 
-.PHONY: before_debug after_debug clean_debug before_positionserver after_positionserver clean_positionserver before_fakesource after_fakesource clean_fakesource before_detectiontest after_detectiontest clean_detectiontest
+before_databasegenerator: 
+	test -d bin/DatabaseGenerator || mkdir -p bin/DatabaseGenerator
+	test -d $(OBJDIR_DATABASEGENERATOR)/src/Detection || mkdir -p $(OBJDIR_DATABASEGENERATOR)/src/Detection
+
+after_databasegenerator: 
+
+databasegenerator: before_databasegenerator out_databasegenerator after_databasegenerator
+
+out_databasegenerator: before_databasegenerator $(OBJ_DATABASEGENERATOR) $(DEP_DATABASEGENERATOR)
+	$(LD) $(LIBDIR_DATABASEGENERATOR) -o $(OUT_DATABASEGENERATOR) $(OBJ_DATABASEGENERATOR)  $(LDFLAGS_DATABASEGENERATOR) $(LIB_DATABASEGENERATOR)
+
+$(OBJDIR_DATABASEGENERATOR)/src/Detection/DatabaseGenerator.o: src/Detection/DatabaseGenerator.cpp
+	$(CXX) $(CFLAGS_DATABASEGENERATOR) $(INC_DATABASEGENERATOR) -c src/Detection/DatabaseGenerator.cpp -o $(OBJDIR_DATABASEGENERATOR)/src/Detection/DatabaseGenerator.o
+
+$(OBJDIR_DATABASEGENERATOR)/src/Detection/FrameCapturer.o: src/Detection/FrameCapturer.cpp
+	$(CXX) $(CFLAGS_DATABASEGENERATOR) $(INC_DATABASEGENERATOR) -c src/Detection/FrameCapturer.cpp -o $(OBJDIR_DATABASEGENERATOR)/src/Detection/FrameCapturer.o
+
+$(OBJDIR_DATABASEGENERATOR)/src/Detection/FrameProcessor.o: src/Detection/FrameProcessor.cpp
+	$(CXX) $(CFLAGS_DATABASEGENERATOR) $(INC_DATABASEGENERATOR) -c src/Detection/FrameProcessor.cpp -o $(OBJDIR_DATABASEGENERATOR)/src/Detection/FrameProcessor.o
+
+clean_databasegenerator: 
+	rm -f $(OBJ_DATABASEGENERATOR) $(OUT_DATABASEGENERATOR)
+	rm -rf bin/DatabaseGenerator
+	rm -rf $(OBJDIR_DATABASEGENERATOR)/src/Detection
+
+.PHONY: before_debug after_debug clean_debug before_positionserver after_positionserver clean_positionserver before_fakesource after_fakesource clean_fakesource before_detectiontest after_detectiontest clean_detectiontest before_databasegenerator after_databasegenerator clean_databasegenerator
 

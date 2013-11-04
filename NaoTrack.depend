@@ -26,7 +26,7 @@
 	<glog/logging.h>
 	"FrameCapturer.h"
 
-1383388609 /home/mato/Cours/NaoTrack/third_party/local/include/glog/logging.h
+1383528826 /home/mato/Cours/NaoTrack/third_party/local/include/glog/logging.h
 	<errno.h>
 	<string.h>
 	<time.h>
@@ -43,9 +43,9 @@
 	"glog/log_severity.h"
 	"glog/vlog_is_on.h"
 
-1383388609 /home/mato/Cours/NaoTrack/third_party/local/include/glog/log_severity.h
+1383528826 /home/mato/Cours/NaoTrack/third_party/local/include/glog/log_severity.h
 
-1383388609 /home/mato/Cours/NaoTrack/third_party/local/include/glog/vlog_is_on.h
+1383528826 /home/mato/Cours/NaoTrack/third_party/local/include/glog/vlog_is_on.h
 	"glog/log_severity.h"
 
 1383420919 /usr/local/include/axisPTZ-1.0/axisPTZ.h
@@ -176,4 +176,11 @@
 1383362781 source:/home/mato/Cours/NaoTrack/src/Detection/pantiltzoom.cpp
 	<math.h>
 	"pantiltzoom.h"
+
+1383533494 source:/home/mato/Cours/NaoTrack/src/Detection/DatabaseGenerator.cpp
+	<string>
+	<boost/filesystem.hpp>
+	<glog/logging.h>
+	"FrameCapturer.h"
+	"FrameProcessor.h"
 

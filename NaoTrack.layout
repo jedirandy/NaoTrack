@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="DetectionTest" />
-	<File name="src/Detection/DetectionTest.cpp" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<ActiveTarget name="DatabaseGenerator" />
+	<File name="src/Position/PositionServer/position-server.cc" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="433" topLine="0" />
+			<Cursor1 position="136" topLine="12" />
 		</Cursor>
 	</File>
-	<File name="src/Detection/FrameCapturer.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/Detection/FrameProcessor.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="50" topLine="0" />
+			<Cursor1 position="98" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="src/Detection/FrameCapturer.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -16,14 +16,14 @@
 			<Cursor1 position="804" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src/Position/PositionServer/position-server.cc" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/Detection/FrameCapturer.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="136" topLine="12" />
+			<Cursor1 position="71" topLine="5" />
 		</Cursor>
 	</File>
-	<File name="src/Detection/FrameProcessor.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/Detection/DetectionTest.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1174" topLine="4" />
+			<Cursor1 position="1459" topLine="11" />
 		</Cursor>
 	</File>
 	<File name="src/Position/Fakesource/fakesource.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -31,9 +31,9 @@
 			<Cursor1 position="475" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src/Detection/FrameProcessor.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/Detection/FrameProcessor.h" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="98" topLine="0" />
+			<Cursor1 position="71" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
